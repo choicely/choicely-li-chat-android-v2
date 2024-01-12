@@ -22,6 +22,8 @@
 package ch.threema.app.services;
 
 import static ch.threema.app.utils.AutoDeleteUtil.validateKeepMessageDays;
+import android.content.ContentResolver;
+import android.content.res.Resources;
 
 import android.content.Context;
 import android.net.Uri;
@@ -74,6 +76,31 @@ public class PreferenceServiceImpl implements PreferenceService {
 	public PreferenceServiceImpl(Context context, PreferenceStoreInterface preferenceStore) {
 		this.context = context;
 		this.preferenceStore = preferenceStore;
+		setNotificationSound(getDefaultRingtoneUri(context));
+		setGroupNotificationSound(getDefaultRingtoneUri(context));
+		setVoiceCallSound(getDefaultRingtoneUri(context));
+	}
+	public static Uri getDefaultRingtoneUri(final Context context) {
+		if (context == null) {
+			return null;
+		}
+		final Resources resources = context.getResources();
+		final int defaultNotificationResource = R.raw.li_chat_notification_sound;
+		final Uri uri = new Uri.Builder()
+			.scheme(ContentResolver.SCHEME_ANDROID_RESOURCE)
+			.authority(resources.getResourcePackageName(defaultNotificationResource))
+			.appendPath(resources.getResourceTypeName(defaultNotificationResource))
+			.appendPath(resources.getResourceEntryName(defaultNotificationResource))
+			.build();
+		return uri;
+	}
+
+	public static String getDefaultRingtoneUriString(final Context context) {
+		final Uri defaultRingtoneUri = getDefaultRingtoneUri(context);
+		if (defaultRingtoneUri == null) {
+			return "";
+		}
+		return defaultRingtoneUri.toString();
 	}
 
 	@Nullable

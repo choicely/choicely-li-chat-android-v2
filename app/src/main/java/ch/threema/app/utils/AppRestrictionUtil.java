@@ -87,7 +87,9 @@ public class AppRestrictionUtil {
 	}
 
 	public static boolean isWebDisabled(Context context) {
-		return getBoolRestriction(context, R.string.restriction__disable_web);
+		return false;
+//		return getBoolRestriction(context, R.string.restriction__disable_web);
+
 	}
 
 	public static boolean isShareMediaDisabled(Context context) {

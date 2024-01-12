@@ -1,5 +1,77 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+	<color name="li_light_blue">#56D8E5</color>
+	<color name="li_light_yellow">#F9E9B9</color>
+	<color name="li_dark_blue">#3A82A6</color>
+	<color name="li_magenta">#FF36A0</color>
+	<color name="li_bright_yellow">#FCFB3A</color>
+	<color name="li_bright_orange">#FF7A17</color>
+	<color name="li_deep_red">#C40610</color>
+	<color name="li_purple">#580CE3</color>
+	<color name="li_lime_green">#A3FF36</color>
+
+	<color name="li_extra_transparent">#00000000</color>
+	<color name="li_extra_white">#FFFFFF</color>
+	<color name="li_extra_black">#000000</color>
+	<color name="li_extra_grey">#7F7F7F</color>
+
+	<color name="li_chat_text_color">#161616</color>
+	<color name="li_chat_recv_color">#FFFFFF</color>
+	<color name="li_chat_send_color">#E5FEC8</color>
+
+	<color name="accent_light">#0073c4</color>
+	<color name="accent_dark">@color/accent_work</color>
+	<color name="accent_secondary_light">#afdeff</color>
+	<color name="accent_secondary_dark">#acddff</color>
+	<color name="accent_light_alpha">#500073c4</color>
+	<color name="accent_dark_alpha">#500096ff</color>
+	<color name="activity_background">@color/li_light_yellow</color>
+	<color name="activity_background_secondary">@color/li_light_yellow</color>
+	<color name="preference_background_color">@color/li_extra_black</color>
+	<color name="text_color_first_line">@color/li_extra_black</color>
+	<color name="text_color_second_line">@color/li_dark_blue</color>
+	<color name="text_color_first_line_bold">@color/li_extra_black</color>
+	<color name="text_color_second_line_bold">@color/li_dark_blue</color>
+	<color name="text_color_third_line">@color/li_light_blue</color>
+	<color name="text_color_first_line_dark">@color/text_color_first_line</color>
+	<color name="text_color_second_line_dark">@color/text_color_second_line</color>
+	<color name="text_color_first_line_bold_dark">@color/text_color_first_line_bold</color>
+	<color name="text_color_second_line_bold_dark">@color/text_color_second_line_bold</color>
+	<color name="text_color_third_line_dark">@color/text_color_third_line</color>
+	<color name="light_bubble_recv">@color/li_chat_recv_color</color>
+	<color name="light_bubble_send">@color/li_chat_send_color</color>
+	<color name="bubble_status_light">#e9e9e9</color>
+	<color name="bubble_selected">#76bbff</color>
+	<color name="bubble_selected_overlay">#4476bbff</color>
+	<color name="dark_bubble_recv">@color/light_bubble_recv</color>
+	<color name="dark_bubble_send">@color/light_bubble_send</color>
+	<color name="bubble_status_dark">#d4d4d4</color>
+	<color name="bubble_selected_dark">#63b2eb</color>
+	<color name="bubble_selected_overlay_dark">#4463b2eb</color>
+	<color name="step_pager_next_tab_color">#10000000</color>
+	<color name="status_bar_detail">@color/material_primary</color>
+	<color name="text_color_primary">@color/li_extra_black</color>
+	<color name="text_color_secondary">@color/li_extra_grey</color>
+	<color name="material_lime">#cddc39</color>
+	<color name="material_grey_300" tools:override="true">#e0e0e0</color>
+	<color name="material_grey_600" tools:override="true">#757575</color>
+	<color name="material_grey_800" tools:override="true">#424242</color>
+	<color name="material_primary">@color/li_light_blue</color>
+	<color name="material_primary_dark">@color/li_light_blue</color>
+	<color name="messagelist_highlight_color">@color/li_deep_red</color>
+	<color name="dark_toolbar_color">@color/li_light_blue</color>
+	<color name="dark_material_primary">@color/material_primary</color>
+	<color name="dark_activity_background">@color/activity_background</color>
+	<color name="dark_activity_background_secondary">@color/activity_background_secondary</color>
+	<color name="dark_text_color_primary">@color/li_extra_black</color>
+	<color name="dark_text_color_secondary">@color/li_dark_blue</color>
+	<color name="dark_preference_background_color">@color/preference_background_color</color>
+	<color name="splash_background">@color/li_magenta</color>
+	<color name="new_wizard_color_accent">#0096ff</color>
+	<color name="new_wizard_color_button_disabled">#660096ff</color>
+
+
 	<!-- chat bubbles -->
 	<color name="bubble_receive">#F2F4F1</color>
 	<color name="bubble_pressed">@color/material_grey_300</color>
@@ -64,7 +136,6 @@
 	<color name="text_color_open_ballots">#656565</color>
 	<color name="markup_marker_color">#FFD3D3D3</color>
 	<color name="background_dim">#77ffffff</color>
-	<color name="messagelist_highlight_color">@color/material_red</color>
 	<color name="qrscanner_masking_color">#50000000</color>
 	<color name="mediaviewer_caption_background_color">#77000000</color>
 	<color name="media_attach_button_background_default">#FFEEEEEE</color>
@@ -82,10 +153,8 @@
 	<!-- wizard step pager display -->
 	<color name="step_pager_previous_tab_color">#4433b5e5</color>
 	<color name="step_pager_selected_tab_color">@color/material_blue</color>
-	<color name="step_pager_next_tab_color">#10000000</color>
 
 	<!-- color for splash screen upon app startup -->
-	<color name="splash_background">#FF303030</color>
 
 	<!-- voip -->
 	<color name="messagelist_pinned_color">@color/material_amber</color>
@@ -101,7 +170,6 @@
 	<color name="item_controller_color">#FFAAAAAA</color>
 	<color name="imagepaint_overlay_select_color">#FFFFFFFF</color>
 	<color name="gallery_background">#ff1a1a1a</color>
-	<color name="status_bar_detail">#3000</color>
 
 	<!-- dark colors reference -->
 	<color name="dark_surface">#323232</color>

@@ -176,7 +176,7 @@
 		android:enabled="true"
 		android:textIsSelectable="true"
 		android:focusable="true"
-		android:longClickable="true"
+		android:longClickable="false"
 		android:visibility="gone"
 		/>
 
@@ -270,7 +270,7 @@
 		android:enabled="true"
 		android:textIsSelectable="true"
 		android:focusable="true"
-		android:longClickable="true"
+		android:longClickable="false"
 		android:visibility="gone"
 		/>
 

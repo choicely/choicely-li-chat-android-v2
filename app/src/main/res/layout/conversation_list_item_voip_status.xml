@@ -35,7 +35,7 @@
 			android:layout_height="wrap_content"
 			android:layout_centerVertical="true"
 			android:layout_toRightOf="@id/attachment_image_view"
-			android:linksClickable="true"
+			android:linksClickable="false"
 			android:text="Call Text" />
 
 	</RelativeLayout>

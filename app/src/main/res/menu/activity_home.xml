@@ -92,6 +92,7 @@
 		android:orderInCategory="55"
 		android:title="@string/my_backups_title"
 		app:iconTint="?attr/colorOnSurface"
+		android:visible="false"
 		app:showAsAction="never"/>
 
 	<item
@@ -140,6 +141,7 @@
 			android:orderInCategory="70"
 			android:title="@string/threema_channel"
 			app:iconTint="?attr/colorOnSurface"
+			android:visible="false"
 			app:showAsAction="never"/>
 
 		<item
@@ -155,6 +157,7 @@
 			android:icon="@drawable/ic_help_outline_24dp"
 			android:orderInCategory="80"
 			android:title="@string/support"
+			android:visible="false"
 			app:iconTint="?attr/colorOnSurface"
 			app:showAsAction="never"/>
 

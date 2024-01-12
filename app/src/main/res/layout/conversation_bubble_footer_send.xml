@@ -10,9 +10,10 @@
     android:minHeight="16sp"
     android:orientation="horizontal"
     android:paddingLeft="@dimen/chat_bubble_margin_end"
-    android:paddingRight="@dimen/chat_bubble_margin_start">
+    android:paddingRight="@dimen/chat_bubble_margin_start"
+    android:visibility="gone">
 
-    <TextView
+<TextView
         style="@style/Threema.Bubble.Text.Footer"
         android:id="@+id/tap_to_resend"
         android:layout_width="wrap_content"
@@ -45,14 +46,6 @@
         android:visibility="gone"
         android:importantForAccessibility="no" />
 
-    <TextView
-        style="@style/Threema.Bubble.Text.Footer"
-        android:id="@+id/date_view"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_gravity="bottom"
-        android:ellipsize="none"
-        android:singleLine="true" />
 
     <include layout="@layout/conversation_bubble_footer_groupack_send" />
 
@@ -65,4 +58,12 @@
         android:visibility="gone"
         app:tint="@color/bubble_text_colorstatelist" />
 
+    <TextView
+        style="@style/Threema.Bubble.Text.Footer"
+        android:id="@+id/date_view"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="bottom"
+        android:ellipsize="none"
+        android:singleLine="true" />
 </LinearLayout>

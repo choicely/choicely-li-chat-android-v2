@@ -6,6 +6,7 @@
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
 	tools:context=".activities.HomeActivity"
+	android:background="@color/activity_background"
 	android:visibility="invisible">
 
 	<com.google.android.material.appbar.AppBarLayout
@@ -37,6 +38,21 @@
 
 	</com.google.android.material.appbar.AppBarLayout>
 
+
+	<com.google.android.material.bottomnavigation.BottomNavigationView
+		style="@style/Threema.BottomNavigationView"
+		android:id="@+id/bottom_navigation"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_gravity="bottom"
+		app:itemIconTint="@color/li_light_yellow"
+		app:itemRippleColor="@color/li_magenta"
+		app:itemTextColor="@color/li_light_yellow"
+		app:layout_constraintBottom_toBottomOf="parent"
+		app:layout_constraintLeft_toLeftOf="parent"
+		app:layout_constraintRight_toRightOf="parent"
+		app:menu="@menu/activity_home_bottom_navigation"/>
+
 	<include
 		layout="@layout/content_home"
 		android:layout_width="0dp"
@@ -46,16 +62,4 @@
 		app:layout_constraintEnd_toEndOf="parent"
 		app:layout_constraintStart_toStartOf="parent"
 		app:layout_constraintTop_toBottomOf="@+id/appbar"/>
-
-	<com.google.android.material.bottomnavigation.BottomNavigationView
-		style="@style/Threema.BottomNavigationView"
-		android:id="@+id/bottom_navigation"
-		android:layout_width="match_parent"
-		android:layout_height="wrap_content"
-		android:layout_gravity="bottom"
-		app:layout_constraintBottom_toBottomOf="parent"
-		app:layout_constraintLeft_toLeftOf="parent"
-		app:layout_constraintRight_toRightOf="parent"
-		app:menu="@menu/activity_home_bottom_navigation"/>
-
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -484,23 +484,25 @@ abstract public class ChatAdapterDecorator extends AdapterDecorator {
 			});
 
 //			propagate long click listener
-			view.setOnLongClickListener(v -> {
-				if (onLongClickElement != null) {
-					onLongClickElement.onLongClick(getMessageModel());
-				}
-				return false;
-			});
-
-//			propagate touch listener
-			view.setOnTouchListener(new View.OnTouchListener() {
-				@Override
-				public boolean onTouch(View arg0, MotionEvent event) {
-					if (onTouchElement != null) {
-						return onTouchElement.onTouch(event, getMessageModel());
+			if (view.getContext().getResources().getBoolean(R.bool.is_open_version)) {
+				view.setOnLongClickListener(v -> {
+					if (onLongClickElement != null) {
+						onLongClickElement.onLongClick(getMessageModel());
 					}
 					return false;
-				}
-			});
+				});
+
+//			propagate touch listener
+				view.setOnTouchListener(new View.OnTouchListener() {
+					@Override
+					public boolean onTouch(View arg0, MotionEvent event) {
+						if (onTouchElement != null) {
+							return onTouchElement.onTouch(event, getMessageModel());
+						}
+						return false;
+					}
+				});
+			}
 		}
 	}
 

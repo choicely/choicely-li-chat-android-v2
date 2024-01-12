@@ -1257,12 +1257,12 @@ public class ConfigUtils {
 
 			if (ConfigUtils.isTheDarkSide(activity)) {
 				if (activityTheme != R.style.Theme_Threema_TransparentStatusbar) {
-					activity.getWindow().addFlags(FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-					statusBarColor = Color.BLACK;
-					if (Build.VERSION.SDK_INT == Build.VERSION_CODES.M) {
-						View decorView = activity.getWindow().getDecorView();
-						decorView.setSystemUiVisibility(FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS & ~SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
-					}
+					//activity.getWindow().addFlags(FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+					//statusBarColor = Color.BLACK;
+					//if (Build.VERSION.SDK_INT == Build.VERSION_CODES.M) {
+					//	View decorView = activity.getWindow().getDecorView();
+					//	decorView.setSystemUiVisibility(FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS & ~SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
+					//}
 				}
 			} else {
 				if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O) {
@@ -1270,13 +1270,13 @@ public class ConfigUtils {
 					if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.LOLLIPOP_MR1) {
 						statusBarColor = Color.BLACK;
 					} else if (Build.VERSION.SDK_INT == Build.VERSION_CODES.M) {
-						View decorView = activity.getWindow().getDecorView();
-						decorView.setSystemUiVisibility(FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS | SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
+						//View decorView = activity.getWindow().getDecorView();
+						//decorView.setSystemUiVisibility(FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS | SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
 					}
 				} else if (activityTheme != R.style.Theme_Threema_MediaViewer && activityTheme != R.style.Theme_Threema_Transparent_Background) {
-					View decorView = activity.getWindow().getDecorView();
-					decorView.setSystemUiVisibility(FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS |
-						SYSTEM_UI_FLAG_LIGHT_NAVIGATION_BAR | SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
+					//View decorView = activity.getWindow().getDecorView();
+					//decorView.setSystemUiVisibility(FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS |
+					//	SYSTEM_UI_FLAG_LIGHT_NAVIGATION_BAR | SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
 				}
 			}
 		}

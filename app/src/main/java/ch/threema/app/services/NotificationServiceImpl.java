@@ -1476,7 +1476,7 @@ public class NotificationServiceImpl implements NotificationService {
 
 	private Bitmap getConversationNotificationAvatar() {
 		/* notification is for more than one chat */
-		return BitmapFactory.decodeResource(context.getResources(), R.drawable.ic_notification_multi_color);
+		return BitmapFactory.decodeResource(context.getResources(), R.drawable.ic_notification_multi);
 	}
 
 	private int getSmallIconResource(int unreadConversationsCount) {

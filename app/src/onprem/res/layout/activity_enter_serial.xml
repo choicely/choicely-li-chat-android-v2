@@ -46,7 +46,7 @@
 					android:layout_height="wrap_content"
 					android:gravity="center_horizontal"
 					android:layout_centerHorizontal="true"
-					android:linksClickable="true"
+					android:linksClickable="false"
 					android:autoLink="web"
 					android:text="@string/enter_serial_body"
 					android:layout_marginTop="@dimen/wizard_paragraph_height"

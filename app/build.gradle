@@ -46,7 +46,8 @@ def getGitHash = { ->
  * Otherwise, return null.
  */
 def findKeystore = { name ->
-    def basePath = "${projectDir.getAbsolutePath()}/../../keystore"
+    //def basePath = "${projectDir.getAbsolutePath()}/../../keystore"
+    def basePath = "${projectDir.getAbsolutePath()}/../keystore"
     def storePath = "${basePath}/${name}.keystore"
     def storeFile = new File(storePath)
     if (storeFile.exists() && storeFile.isFile()) {
@@ -98,11 +99,11 @@ android {
         //noinspection OldTargetApi
         targetSdkVersion 33
         vectorDrawables.useSupportLibrary = true
-        applicationId "ch.threema.app"
-        testApplicationId 'ch.threema.app.test'
-        versionCode defaultVersionCode
-        versionName "${app_version}${beta_suffix}"
-        resValue "string", "app_name", "Threema"
+        applicationId "com.choicely.li.chat"
+        testApplicationId 'com.choicely.li.chat.test'
+        versionCode 1
+        versionName "0.0.1a"
+        resValue "string", "app_name", "LI Chat"
         // package name used for sync adapter - needs to match mime types below
         resValue "string", "package_name", applicationId
         resValue "string", "contacts_mime_type", "vnd.android.cursor.item/vnd.ch.threema.app.profile"
@@ -218,11 +219,6 @@ android {
             resValue "string", "shop_download_filename", "Threema-update.apk"
         }
         store_google_work {
-            versionName "${app_version}k${beta_suffix}"
-            applicationId "ch.threema.app.work"
-            testApplicationId 'ch.threema.app.work.test'
-            resValue "string", "app_name", "Threema Work"
-            resValue "string", "package_name", applicationId
             resValue "string", "contacts_mime_type", "vnd.android.cursor.item/vnd.ch.threema.app.work.profile"
             resValue "string", "call_mime_type", "vnd.android.cursor.item/vnd.ch.threema.app.work.call"
             buildConfigField "String", "CHAT_SERVER_PREFIX", "\"w-\""
@@ -406,6 +402,9 @@ android {
         if (keystores.debug != null) {
             debug {
                 storeFile file(keystores.debug.storeFile)
+                storePassword keystores.debug.storePassword
+                keyAlias keystores.debug.keyAlias
+                keyPassword keystores.debug.keyPassword
             }
         } else {
             logger.warn("No debug keystore found. Falling back to locally generated keystore.")

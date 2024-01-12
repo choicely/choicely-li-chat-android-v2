@@ -8,10 +8,13 @@
 	<item
 			android:id="@+id/logo_text">
 
-		<bitmap
-				android:id="@+id/logo_text_bitmap"
-				android:gravity="center"
-				android:src="@drawable/logo_main_white"/>
+		<bitmap			android:id="@+id/logo_text_bitmap"
+			android:gravity="center"
+			android:antialias="true"
+			android:dither="true"
+			android:filter="true"
+			android:src="@drawable/choicely_logo" />
+		/>
 
 	</item>
 

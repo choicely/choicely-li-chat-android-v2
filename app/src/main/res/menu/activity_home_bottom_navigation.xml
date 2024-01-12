@@ -8,11 +8,15 @@
 	<item
 		android:id="@+id/contacts"
 		android:icon="@drawable/selector_contact"
+		android:enabled="@bool/is_open_version"
+		android:visible="@bool/is_open_version"
 		android:title="@string/title_section2"/>
 
 	<item
 		android:id="@+id/my_profile"
 		android:icon="@drawable/selector_profile"
+		android:enabled="@bool/is_open_version"
+		android:visible="@bool/is_open_version"
 		android:title="@string/my_profile"/>
 
 </menu>

@@ -51,7 +51,7 @@
 				android:layout_height="wrap_content"
 				android:layout_gravity="center_horizontal"
 				android:layout_marginTop="@dimen/wizard_small_paragraph_height"
-				android:linksClickable="true"
+				android:linksClickable="false"
 				android:clickable="true"
 				android:gravity="center_horizontal"
 				android:text=""/>

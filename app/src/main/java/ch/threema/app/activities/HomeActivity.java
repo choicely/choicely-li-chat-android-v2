@@ -1394,10 +1394,11 @@ public class HomeActivity extends ThreemaAppCompatActivity implements
 	public boolean onCreateOptionsMenu(Menu menu) {
 		super.onCreateOptionsMenu(menu);
 
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.activity_home, menu);
-
-		ConfigUtils.addIconsToOverflowMenu(this, menu);
+		if (getResources().getBoolean(R.bool.is_open_version)) {
+			// Inflate the menu; this adds items to the action bar if it is present.
+			getMenuInflater().inflate(R.menu.activity_home, menu);
+			ConfigUtils.addIconsToOverflowMenu(this, menu);
+		}
 
 		return true;
 	}
@@ -1454,11 +1455,11 @@ public class HomeActivity extends ThreemaAppCompatActivity implements
 
 		AppCompatImageView toolbarLogoMain = toolbar.findViewById(R.id.toolbar_logo_main);
 		ViewGroup.LayoutParams layoutParams = toolbarLogoMain.getLayoutParams();
-		layoutParams.height = ConfigUtils.getActionBarSize(this) / 3;
+		//layoutParams.height = ConfigUtils.getActionBarSize(this) / 3;
 		toolbarLogoMain.setLayoutParams(layoutParams);
-		toolbarLogoMain.setImageResource(R.drawable.logo_main);
-		toolbarLogoMain.setColorFilter(ConfigUtils.getColorFromAttribute(this, R.attr.colorOnSurface),
-			PorterDuff.Mode.SRC_IN);
+		//toolbarLogoMain.setImageResource(R.drawable.logo_main);
+		//toolbarLogoMain.setColorFilter(ConfigUtils.getColorFromAttribute(this, R.attr.colorOnSurface),
+		//	PorterDuff.Mode.SRC_IN);
 		toolbarLogoMain.setContentDescription(getString(R.string.logo));
 		toolbarLogoMain.setOnClickListener(v -> {
 			if (currentFragmentTag != null) {
@@ -1478,17 +1479,31 @@ public class HomeActivity extends ThreemaAppCompatActivity implements
 		updateDrawerImage();
 	}
 
+	private void hideScanId() {
+		final ActionBar actionBar = getSupportActionBar();
+		if (actionBar != null) {
+			actionBar.setDisplayShowCustomEnabled(false);
+			actionBar.setDisplayHomeAsUpEnabled(false);
+		}
+		final View toolbarFrame = toolbar.findViewById(R.id.main_toolbar_frame);
+		if (toolbarFrame != null) {
+			toolbar.removeAllViews();
+			toolbar.addView(toolbarFrame, toolbarFrame.getLayoutParams());
+		}
+	}
+
 	@Override
 	public boolean onPrepareOptionsMenu(Menu menu) {
 		super.onPrepareOptionsMenu(menu);
+		if (!getResources().getBoolean(R.bool.is_open_version)) {
+			hideScanId();
+		}
 
 		if (serviceManager != null) {
 
 			MenuItem lockMenuItem = menu.findItem(R.id.menu_lock);
 			if (lockMenuItem != null) {
-				lockMenuItem.setVisible(
-					lockAppService.isLockingEnabled()
-				);
+				lockMenuItem.setVisible(false);
 			}
 
 			MenuItem privateChatToggleMenuItem = menu.findItem(R.id.menu_toggle_private_chats);
@@ -1515,7 +1530,7 @@ public class HomeActivity extends ThreemaAppCompatActivity implements
 				}
 
 				addDisabled = AppRestrictionUtil.getBooleanRestriction(getString(R.string.restriction__disable_add_contact));
-				webDisabled = AppRestrictionUtil.isWebDisabled(this);
+				//webDisabled = AppRestrictionUtil.isWebDisabled(this);
 			} else {
 				addDisabled = this.contactService != null &&
 					this.contactService.getByIdentity(THREEMA_CHANNEL_IDENTITY) != null;

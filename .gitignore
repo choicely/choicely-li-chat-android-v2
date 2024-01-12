@@ -19,3 +19,5 @@ threema-android-*
 release/
 .cxx/
 patches/
+*.apk
+store_google_work/debug/

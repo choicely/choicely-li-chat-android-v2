@@ -2014,6 +2014,11 @@ public class ComposeMessageFragment extends Fragment implements
 					activity.startActivity(intent);
 				}
 			});
+			if (!getContext().getResources().getBoolean(R.bool.is_open_version)) {
+				actionBarTitleContainer.setClickable(false);
+				actionBarTitleContainer.setFocusable(false);
+				actionBarTitleContainer.setEnabled(false);
+			}
 
 			if (contactModel != null) {
 				if (contactModel.getIdentityType() == IdentityType.WORK) {
@@ -2222,7 +2227,7 @@ public class ComposeMessageFragment extends Fragment implements
 		}
 
 		// set wallpaper based on message receiver
-		this.setBackgroundWallpaper();
+		//this.setBackgroundWallpaper();
 
 		// report shortcut as used
 		if (preferenceService.isDirectShare()) {
@@ -3330,9 +3335,9 @@ public class ComposeMessageFragment extends Fragment implements
 		if (!TestUtil.empty(this.messageText.getText())) {
 			sendTextMessage();
 		} else {
-			if (ConfigUtils.requestAudioPermissions(requireActivity(), this, PERMISSION_REQUEST_ATTACH_VOICE_MESSAGE)) {
-				attachVoiceMessage();
-			}
+			//if (ConfigUtils.requestAudioPermissions(requireActivity(), this, PERMISSION_REQUEST_ATTACH_VOICE_MESSAGE)) {
+			//	attachVoiceMessage();
+			//}
 		}
 	}
 
@@ -3728,12 +3733,12 @@ public class ComposeMessageFragment extends Fragment implements
 	@Override
 	@SuppressLint("StaticFieldLeak")
 	public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
-		inflater.inflate(R.menu.fragment_compose_message, menu);
+		//inflater.inflate(R.menu.fragment_compose_message, menu);
 		this.setupToolbar();
 
 		super.onCreateOptionsMenu(menu, inflater);
 
-		ConfigUtils.addIconsToOverflowMenu(getContext(), menu);
+		//ConfigUtils.addIconsToOverflowMenu(getContext(), menu);
 	}
 
 	@Override
@@ -4782,9 +4787,9 @@ public class ComposeMessageFragment extends Fragment implements
 				case PERMISSION_REQUEST_SAVE_MESSAGE:
 					fileService.saveMedia(activity, coordinatorLayout, new CopyOnWriteArrayList<>(selectedMessages), false);
 					break;
-				case PERMISSION_REQUEST_ATTACH_VOICE_MESSAGE:
-					attachVoiceMessage();
-					break;
+				//case PERMISSION_REQUEST_ATTACH_VOICE_MESSAGE:
+				//	attachVoiceMessage();
+				//	break;
 				case PERMISSION_REQUEST_ATTACH_CAMERA:
 					updateCameraButton();
 					attachCamera();

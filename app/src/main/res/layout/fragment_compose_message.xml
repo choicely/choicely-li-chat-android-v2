@@ -16,15 +16,19 @@
 		android:background="@android:color/transparent"
 		android:importantForAccessibility="no"
 		android:fillViewport="true"
+		android:visibility="gone"
 		android:scrollbars="none">
 
 		<ImageView
 			android:id="@+id/wallpaper_view"
 			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
-			android:scaleType="centerCrop"
-			android:visibility="gone"
+			android:layout_height="match_parent"
+			android:adjustViewBounds="true"
+			android:scaleType="fitXY"
+			android:background="@drawable/li_chat_wallpaper"
+			android:visibility="visible"
 			android:importantForAccessibility="no"/>
+
 
 	</ch.threema.app.ui.LockableScrollView>
 
@@ -389,10 +393,12 @@
 					android:layout_width="@dimen/input_text_height"
 					android:layout_height="@dimen/input_text_height"
 					android:layout_gravity="bottom|right"
+					android:backgroundTint="@color/li_dark_blue"
+					android:visibility="visible"
+					android:longClickable="false"
 					android:clickable="true"
 					android:focusable="true"
-					android:foreground="@drawable/selector_avatar"
-					android:nextFocusLeft="@+id/attach_button" />
+					android:foreground="@drawable/selector_avatar" />
 
 			</com.google.android.material.card.MaterialCardView>
 

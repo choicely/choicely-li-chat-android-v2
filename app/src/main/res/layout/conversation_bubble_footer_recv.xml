@@ -10,9 +10,11 @@
 			  android:paddingRight="@dimen/chat_bubble_margin_end"
 			  android:orientation="horizontal"
 			  android:gravity="bottom"
-			  android:layout_gravity="bottom">
+			  android:layout_gravity="bottom"
+				android:visibility="gone">
 
-	<ImageView
+
+<ImageView
 			android:id="@+id/delivered_indicator"
 			android:layout_width="18dp"
 			android:layout_height="18dp"

@@ -70,7 +70,7 @@
 					android:id="@+id/text_view"
 					android:layout_width="match_parent"
 					android:layout_height="wrap_content"
-					android:linksClickable="true"
+					android:linksClickable="false"
 					android:textIsSelectable="true"
 					app:layout_constraintBottom_toTopOf="@+id/footer"
 					app:layout_constraintLeft_toLeftOf="parent"

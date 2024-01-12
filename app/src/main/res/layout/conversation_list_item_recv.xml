@@ -11,7 +11,6 @@
 	android:paddingBottom="@dimen/chat_bubble_container_padding_bottom"
 	android:paddingLeft="@dimen/chat_bubble_container_padding_left_right">
 
-	<include layout="@layout/conversation_bubble_start_recv"/>
 
 	<com.google.android.material.card.MaterialCardView
 			style="@style/Threema.CardView.Bubble.Receive"
@@ -30,15 +29,6 @@
 				android:paddingLeft="@dimen/chat_bubble_margin_start"
 				android:paddingRight="@dimen/chat_bubble_margin_end">
 
-			<ch.threema.app.emojis.EmojiConversationTextView
-					style="@style/Threema.Bubble.Text.Body"
-					android:id="@+id/text_view"
-					android:layout_width="wrap_content"
-					android:layout_height="wrap_content"
-					android:linksClickable="true"
-					android:textSize="?attr/font_large"
-					android:ellipsize="end"
-					android:maxLength="@integer/max_bubble_text_length"/>
 
 			<FrameLayout
 				android:id="@+id/read_on_container"
@@ -59,11 +49,24 @@
 
 			</FrameLayout>
 
+			<ch.threema.app.emojis.EmojiConversationTextView
+				style="@style/Threema.Bubble.Text.Body"
+				android:id="@+id/text_view"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:linksClickable="true"
+				android:textSize="?attr/font_large"
+				android:ellipsize="end"
+				android:maxLength="@integer/max_bubble_text_length"/>
 		</FrameLayout>
+
+		<include layout="@layout/conversation_bubble_header" />
 
 		<include layout="@layout/conversation_bubble_footer_recv"/>
 
 	</LinearLayout>
+
+	<include layout="@layout/conversation_bubble_start_recv"/>
 
 	</com.google.android.material.card.MaterialCardView>
 

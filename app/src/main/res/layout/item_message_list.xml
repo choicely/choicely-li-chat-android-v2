@@ -14,12 +14,37 @@
 	app:cardElevation="0dp"
 	app:cardPreventCornerOverlap="false"
 	app:cardUseCompatPadding="false">
+	<ImageView
+		android:id="@+id/hidden_status"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_gravity="right|top"
+		android:contentDescription="@string/private_chat_subject"
+		app:srcCompat="@drawable/ic_incognito" />
+
+	<LinearLayout
+		android:layout_width="wrap_content"
+		android:layout_height="match_parent">
+
+		<View
+			android:id="@+id/unread_view"
+			android:layout_width="5dp"
+			android:layout_height="match_parent"
+			android:background="@color/messagelist_highlight_color"
+			android:visibility="visible" />
+
+		<View
+			android:id="@+id/tag_star_on"
+			android:layout_width="5dp"
+			android:layout_height="match_parent"
+			android:background="@color/messagelist_pinned_color"
+			android:visibility="visible" />
+	</LinearLayout>
 
 	<androidx.constraintlayout.widget.ConstraintLayout
 		android:id="@+id/list_item_fg"
 		android:layout_width="match_parent"
 		android:layout_height="@dimen/messagelist_item_height"
-		android:background="?android:attr/colorBackground"
 		android:paddingLeft="@dimen/listitem_message_margin_left_right"
 		android:paddingRight="@dimen/listitem_message_margin_left_right">
 
@@ -254,12 +279,5 @@
 			android:visibility="visible"/>
 	</LinearLayout>
 
-	<ImageView
-		android:id="@+id/hidden_status"
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		app:srcCompat="@drawable/ic_incognito"
-		android:layout_gravity="right|top"
-		android:contentDescription="@string/private_chat_subject"/>
 
 </com.google.android.material.card.MaterialCardView>

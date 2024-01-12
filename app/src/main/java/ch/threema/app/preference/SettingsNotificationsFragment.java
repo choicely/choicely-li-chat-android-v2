@@ -30,6 +30,8 @@ import android.media.RingtoneManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.format.DateFormat;
+import ch.threema.app.services.PreferenceServiceImpl;
+
 import android.view.View;
 
 import androidx.activity.result.ActivityResultLauncher;
@@ -278,18 +280,21 @@ public class SettingsNotificationsFragment extends ThreemaPreferenceFragment imp
 
 		// setup defaults and callbacks
 		ringtonePreference = findPreference(getResources().getString(R.string.preferences__notification_sound));
-		updateRingtoneSummary(ringtonePreference, sharedPreferences.getString(getResources().getString(R.string.preferences__notification_sound), ""));
+		updateRingtoneSummary(ringtonePreference, sharedPreferences.getString(getResources().getString(R.string.preferences__notification_sound),
+			PreferenceServiceImpl.getDefaultRingtoneUriString(getContext())));
 		groupRingtonePreference = findPreference(getResources().getString(R.string.preferences__group_notification_sound));
-		updateRingtoneSummary(groupRingtonePreference, sharedPreferences.getString(getResources().getString(R.string.preferences__group_notification_sound), ""));
+		updateRingtoneSummary(groupRingtonePreference, sharedPreferences.getString(getResources().getString(R.string.preferences__group_notification_sound),
+			PreferenceServiceImpl.getDefaultRingtoneUriString(getContext())));
 		voiceRingtonePreference = findPreference(getResources().getString(R.string.preferences__voip_ringtone));
-		updateRingtoneSummary(voiceRingtonePreference, sharedPreferences.getString(getResources().getString(R.string.preferences__voip_ringtone), ""));
+		updateRingtoneSummary(voiceRingtonePreference, sharedPreferences.getString(getResources().getString(R.string.preferences__voip_ringtone),
+			PreferenceServiceImpl.getDefaultRingtoneUriString(getContext())));
 		groupCallsRingtonePreference = findPreference(getResources().getString(R.string.preferences__group_calls_ringtone));
 		updateRingtoneSummary(groupCallsRingtonePreference, sharedPreferences.getString(getResources().getString(R.string.preferences__group_calls_ringtone), ""));
 
 		ringtonePreference.setOnPreferenceClickListener(preference -> {
 			chooseRingtone(RingtoneManager.TYPE_NOTIFICATION,
 				getRingtoneFromRingtonePref(R.string.preferences__notification_sound),
-				null,
+				PreferenceServiceImpl.getDefaultRingtoneUri(getContext()),
 				getString(R.string.prefs_notification_sound),
 				DIALOG_TAG_CONTACT_NOTIFICATION);
 			return true;
@@ -297,7 +302,7 @@ public class SettingsNotificationsFragment extends ThreemaPreferenceFragment imp
 		groupRingtonePreference.setOnPreferenceClickListener(preference -> {
 			chooseRingtone(RingtoneManager.TYPE_NOTIFICATION,
 				getRingtoneFromRingtonePref(R.string.preferences__group_notification_sound),
-				null,
+				PreferenceServiceImpl.getDefaultRingtoneUri(getContext()),
 				getString(R.string.prefs_notification_sound),
 				DIALOG_TAG_GROUP_NOTIFICATION);
 			return true;
@@ -307,7 +312,7 @@ public class SettingsNotificationsFragment extends ThreemaPreferenceFragment imp
 			public boolean onPreferenceClick(@NonNull Preference preference) {
 				chooseRingtone(RingtoneManager.TYPE_RINGTONE,
 					getRingtoneFromRingtonePref(R.string.preferences__voip_ringtone),
-					RingtoneUtil.THREEMA_CALL_RINGTONE_URI,
+					PreferenceServiceImpl.getDefaultRingtoneUri(getContext()),
 					getString(R.string.prefs_voice_call_sound),
 					DIALOG_TAG_VOIP_NOTIFICATION);
 				return true;
@@ -479,15 +484,18 @@ public class SettingsNotificationsFragment extends ThreemaPreferenceFragment imp
 		switch (tag) {
 			case DIALOG_TAG_CONTACT_NOTIFICATION:
 				sharedPreferences.edit().putString(ThreemaApplication.getAppContext().getString(R.string.preferences__notification_sound), toneString).apply();
-				updateRingtoneSummary(ringtonePreference, sharedPreferences.getString(getResources().getString(R.string.preferences__notification_sound), ""));
+				updateRingtoneSummary(ringtonePreference, sharedPreferences.getString(getResources().getString(R.string.preferences__notification_sound),
+					PreferenceServiceImpl.getDefaultRingtoneUriString(getContext())));
 				break;
 			case DIALOG_TAG_GROUP_NOTIFICATION:
 				sharedPreferences.edit().putString(ThreemaApplication.getAppContext().getString(R.string.preferences__group_notification_sound), toneString).apply();
-				updateRingtoneSummary(groupRingtonePreference, sharedPreferences.getString(getResources().getString(R.string.preferences__group_notification_sound), ""));
+				updateRingtoneSummary(groupRingtonePreference, sharedPreferences.getString(getResources().getString(R.string.preferences__group_notification_sound),
+					PreferenceServiceImpl.getDefaultRingtoneUriString(getContext())));
 				break;
 			case DIALOG_TAG_VOIP_NOTIFICATION:
 				sharedPreferences.edit().putString(ThreemaApplication.getAppContext().getString(R.string.preferences__voip_ringtone), toneString).apply();
-				updateRingtoneSummary(voiceRingtonePreference, sharedPreferences.getString(getResources().getString(R.string.preferences__voip_ringtone), ""));
+				updateRingtoneSummary(voiceRingtonePreference, sharedPreferences.getString(getResources().getString(R.string.preferences__voip_ringtone),
+					PreferenceServiceImpl.getDefaultRingtoneUriString(getContext())));
 				break;
 			case DIALOG_TAG_GROUP_CALLS_NOTIFICATION:
 				sharedPreferences.edit().putString(ThreemaApplication.getAppContext().getString(R.string.preferences__group_calls_ringtone), toneString).apply();

@@ -32,6 +32,7 @@
 			android:layout_gravity="left"
 			android:ellipsize="end"
 			android:singleLine="true"
+			android:textColor="@color/li_extra_white"
 			android:textAppearance="@style/Threema.TextAppearance.Toolbar.Title"
 			android:text="Title"
 			android:includeFontPadding="false"/>

@@ -32,7 +32,9 @@
 		<item name="colorErrorContainer">@color/md_theme_light_errorContainer</item>
 		<item name="colorOnError">@color/md_theme_light_onError</item>
 		<item name="colorOnErrorContainer">@color/md_theme_light_onErrorContainer</item>
-		<item name="android:colorBackground">@color/md_theme_light_background</item>
+		<item name="android:colorBackground">@color/material_primary</item> <!-- background of spinner popup -->
+		<item name="android:windowBackground">@color/material_primary</item>
+		<item name="colorControlNormal">@color/li_extra_white</item> <!-- color of back arrow in toolbar -->
 		<item name="colorOnBackground">@color/md_theme_light_onBackground</item>
 		<item name="colorSurface">@color/md_theme_light_surface</item>
 		<item name="colorOnSurface">@color/md_theme_light_onSurface</item>
@@ -46,11 +48,11 @@
 		<!-- deprecated color mappings -->
 		<item name="colorPrimaryDark">@color/md_theme_light_secondary</item> <!--   darker variant for the status bar and contextual app bars -->
 		<item name="colorAccent">@color/md_theme_light_primary</item> <!--   theme UI controls like checkboxes and text fields -->
-		<item name="android:windowBackground">@color/md_theme_light_background</item> <!-- action mode appears on top of tool bar -->
 		<item name="android:textColorPrimary">@color/md_theme_light_onBackground</item>
 		<item name="android:textColorSecondary">@color/md_theme_light_secondary</item> <!-- used to tint menu/hamburger icons in action bar -->
-		<item name="textColorPrimary">@color/md_theme_light_onBackground</item>
-		<item name="textColorSecondary">@color/md_theme_light_secondary</item>
+		<item name="textColorPrimary">@color/li_extra_white</item>
+		<item name="textColorSecondary">@color/li_extra_grey</item>
+
 
 		<!-- Status bar and navigation bar color -->
 		<item name="android:windowLightStatusBar" tools:targetApi="23">true</item>

@@ -637,7 +637,9 @@ public class ComposeMessageAdapter extends ArrayAdapter<AbstractMessageModel> {
 
 				decorator.setOnClickElement(messageModel12 -> onClickListener.click(v, position, messageModel12));
 
-				decorator.setOnLongClickElement(messageModel13 -> onClickListener.longClick(v, position, messageModel13));
+				if (getContext().getResources().getBoolean(R.bool.is_open_version)) {
+					decorator.setOnLongClickElement(messageModel13 -> onClickListener.longClick(v, position, messageModel13));
+				}
 
 				decorator.setOnTouchElement((motionEvent, messageModel14) -> onClickListener.touch(v, motionEvent, messageModel14));
 
