@@ -45,6 +45,7 @@
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
 		android:layout_gravity="bottom"
+		android:background="@color/li_dark_blue"
 		app:itemIconTint="@color/li_light_yellow"
 		app:itemRippleColor="@color/li_magenta"
 		app:itemTextColor="@color/li_light_yellow"

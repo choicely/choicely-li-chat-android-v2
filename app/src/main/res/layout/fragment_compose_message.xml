@@ -351,7 +351,7 @@
 					android:layout_width="@dimen/emoji_button_width"
 					android:layout_height="@dimen/emoji_button_width"
 					android:layout_gravity="bottom|right"
-					android:layout_marginRight="94dp"
+					android:layout_marginRight="56dp"
 					android:layout_marginBottom="5dp">
 
 					<ImageButton
@@ -382,6 +382,7 @@
 					android:contentDescription="@string/add_attachment"
 					android:drawablePadding="0dip"
 					android:focusable="true"
+					android:visibility="gone"
 					android:nextFocusLeft="@+id/embedded_text_editor"
 					android:nextFocusRight="@+id/send_button"
 					android:padding="8dp"
