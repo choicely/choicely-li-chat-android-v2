@@ -117,10 +117,7 @@
 			android:id="@+id/toolbar"
 			style="@style/Threema.ToolbarStyle"
 			android:layout_width="match_parent"
-			android:layout_height="?attr/actionBarSize"
-			app:menu="@menu/activity_media_attach"
-			app:navigationIcon="@drawable/ic_chevron_down_slightly_bigger"
-			app:navigationIconTint="?attr/colorOnSurface">
+			android:layout_height="?attr/actionBarSize">
 
 			<LinearLayout
 				android:id="@+id/toolbar_title"
