@@ -1155,7 +1155,7 @@ public class MessageSectionFragment extends MainFragment
 
 	@Override
 	public boolean onItemLongClick(View view, int position, ConversationModel conversationModel) {
-		if (!isMultiPaneEnabled(activity)) {
+		if (!isMultiPaneEnabled(activity) && getResources().getBoolean(R.bool.is_open_version)) {
 			messageListAdapter.toggleItemChecked(conversationModel, position);
 			showSelector();
 			return true;

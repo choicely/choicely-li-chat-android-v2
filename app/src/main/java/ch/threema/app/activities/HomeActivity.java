@@ -1135,11 +1135,11 @@ public class HomeActivity extends ThreemaAppCompatActivity implements
 
 		Intent intent = getIntent();
 		if (intent != null && intent.getBooleanExtra(EXTRA_SHOW_CONTACTS, false)) {
-			initialFragmentTag = FRAGMENT_TAG_CONTACTS;
+			initialFragmentTag = FRAGMENT_TAG_MESSAGES;
 			intent.removeExtra(EXTRA_SHOW_CONTACTS);
 		}
 
-		if (!isAppStart && savedInstanceState.containsKey(BUNDLE_CURRENT_FRAGMENT_TAG)) {
+		if (!isAppStart && savedInstanceState.containsKey(BUNDLE_CURRENT_FRAGMENT_TAG) && getResources().getBoolean(R.bool.is_open_version)) {
 			// restored session
 			initialFragmentTag = savedInstanceState.getString(BUNDLE_CURRENT_FRAGMENT_TAG, initialFragmentTag);
 
@@ -1179,27 +1179,35 @@ public class HomeActivity extends ThreemaAppCompatActivity implements
 			FragmentTransaction contactsTransaction = getSupportFragmentManager().beginTransaction().add(R.id.home_container, contactsFragment, FRAGMENT_TAG_CONTACTS);
 			FragmentTransaction profileTransaction = getSupportFragmentManager().beginTransaction().add(R.id.home_container, profileFragment, FRAGMENT_TAG_PROFILE);
 
-			currentFragmentTag = initialFragmentTag;
+			if (getResources().getBoolean(R.bool.is_open_version)) {
 
-			switch (initialFragmentTag) {
-				case FRAGMENT_TAG_CONTACTS:
-					initialItemId = R.id.contacts;
-					messagesTransaction.hide(messagesFragment);
-					messagesTransaction.hide(profileFragment);
-					break;
-				case FRAGMENT_TAG_MESSAGES:
-					initialItemId = R.id.messages;
-					messagesTransaction.hide(contactsFragment);
-					messagesTransaction.hide(profileFragment);
-					break;
-				case FRAGMENT_TAG_PROFILE:
-					initialItemId = R.id.my_profile;
-					messagesTransaction.hide(messagesFragment);
-					messagesTransaction.hide(contactsFragment);
-					break;
-				default:
-					// should never happen
-					initialItemId = R.id.messages;
+				currentFragmentTag = initialFragmentTag;
+
+				switch (initialFragmentTag) {
+					case FRAGMENT_TAG_CONTACTS:
+						initialItemId = R.id.contacts;
+						messagesTransaction.hide(messagesFragment);
+						messagesTransaction.hide(profileFragment);
+						break;
+					case FRAGMENT_TAG_MESSAGES:
+						initialItemId = R.id.messages;
+						messagesTransaction.hide(contactsFragment);
+						messagesTransaction.hide(profileFragment);
+						break;
+					case FRAGMENT_TAG_PROFILE:
+						initialItemId = R.id.my_profile;
+						messagesTransaction.hide(messagesFragment);
+						messagesTransaction.hide(contactsFragment);
+						break;
+					default:
+						// should never happen
+						initialItemId = R.id.messages;
+				}
+			} else {
+				currentFragmentTag = FRAGMENT_TAG_MESSAGES;
+				initialItemId = R.id.messages;
+				messagesTransaction.hide(contactsFragment);
+				messagesTransaction.hide(profileFragment);
 			}
 
 			try {
